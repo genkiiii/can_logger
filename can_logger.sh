@@ -19,7 +19,7 @@ TIMESTAMP=$(date +"%Y%m%d%H%M%S")
 LOG_FILE="${LOG_DIR}/canlog_${TIMESTAMP}.log"
 
 # CANバスデータの収集とログファイルへの出力
-candump $CAN_INTERFACE | while read -r line; do
+candump -ta $CAN_INTERFACE | while read -r line; do
     # ログファイルにデータを書き込み
     echo "$line" >> "$LOG_FILE"
 
